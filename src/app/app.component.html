@@ -6,11 +6,11 @@
       </div>
     </div>
     <div
-      class="row employee"
+      class="employee"
       formArrayName="employees"
       *ngFor="let emp of employees.controls; let i = index"
     >
-      <div [formGroupName]="i">
+      <div [formGroupName]="i" class="row">
         <div class="col-md-6 col-lg-6">
           <label for="">Name</label>
           <input
