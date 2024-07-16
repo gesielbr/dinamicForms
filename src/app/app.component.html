@@ -1,16 +1,49 @@
-<div class="row">
-  <div class="col-12">
-    <div class="container">
-      <button type="button" class="btn btn-primary">Primary</button>
-      <button type="button" class="btn btn-secondary">Secondary</button>
-      <button type="button" class="btn btn-success">Success</button>
-      <button type="button" class="btn btn-danger">Danger</button>
-      <button type="button" class="btn btn-warning">Warning</button>
-      <button type="button" class="btn btn-info">Info</button>
-      <button type="button" class="btn btn-light">Light</button>
-      <button type="button" class="btn btn-dark">Dark</button>
-
-      <button type="button" class="btn btn-link">Link</button>
+<div class="container bg-secondary">
+  <form action="" [formGroup]="employeeForm" (ngSubmit)="submitForm()">
+    <div class="row">
+      <div class="col-12">
+        <h2>Employer Form</h2>
+      </div>
     </div>
-  </div>
+    <div
+      class="row employee"
+      formArrayName="employees"
+      *ngFor="let emp of employees.controls; let i = index"
+    >
+      <div [formGroupName]="i">
+        <div class="col-md-6 col-lg-6">
+          <label for="">Name</label>
+          <input
+            class="employee-fields"
+            type="text"
+            formControlName="name"
+            placeholder="Enter employee name..."
+          />
+        </div>
+        <div class="col-md-6 col-lg-6">
+          <label for="">Job</label>
+          <input
+            class="employee-fields"
+            type="text"
+            formControlName="job"
+            placeholder="Enter employee job..."
+          />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 d-flex justify-content-around">
+        <button
+          type="button"
+          class="btn btn-primary add-button"
+          (click)="addEmployee()"
+        >
+          Add Employee
+        </button>
+        <button type="submit" class="btn btn-primary submitt-button">
+          Submit
+        </button>
+      </div>
+    </div>
+  </form>
 </div>

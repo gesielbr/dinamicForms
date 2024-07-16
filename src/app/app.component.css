@@ -1,0 +1,10 @@
+.employee {
+  border: 1px solid #000;
+  margin-bottom: 1rem;
+}
+
+.employee-fields {
+  width: 100%;
+  max-width: 100%;
+  padding: 1rem;
+}
