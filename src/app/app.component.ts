@@ -7,6 +7,7 @@ import {
   ReactiveFormsModule,
   FormArray,
   FormsModule,
+  FormBuilder,
 } from '@angular/forms';
 
 @Component({
@@ -21,9 +22,13 @@ export class AppComponent {
 
   employeeForm: FormGroup;
 
-  constructor() {
-    this.employeeForm = new FormGroup({
-      employees: new FormArray([]),
+  // using the form builder,
+  // we eliminate the need to instantiate
+  // individual form control and form
+
+  constructor(private fb: FormBuilder) {
+    this.employeeForm = this.fb.group({
+      employees: this.fb.array([]),
     });
   }
 
@@ -32,9 +37,9 @@ export class AppComponent {
   }
 
   addEmployee() {
-    const employeeGroup = new FormGroup({
-      name: new FormControl(''),
-      job: new FormControl(''),
+    const employeeGroup = this.fb.group({
+      name: [''],
+      job: [''],
     });
     this.employees.push(employeeGroup);
   }
